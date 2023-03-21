@@ -33,7 +33,11 @@ class FudanAPI:
                   'lat': self.route.start_point.latitude}
         response = requests.get(start_url, params=params)
         data = json.loads(response.text)
-        self.run_id = data['data']['run_id']
+        try:
+            self.run_id = data['data']['run_id']
+        except:
+            print(f"ERROR: {data['message']}")
+            exit(1)
 
     def update(self, point):
         update_url = 'https://sport.fudan.edu.cn/sapi/run/point'
