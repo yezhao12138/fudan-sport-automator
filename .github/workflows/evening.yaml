@@ -2,7 +2,7 @@ name: Evening Exercise
 
 on:
   schedule:
-    - cron: '00 03 * * *'
+    - cron: '00 12 * * *'
   workflow_dispatch:
 
 jobs:
