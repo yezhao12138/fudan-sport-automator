@@ -40,9 +40,9 @@ if __name__ == '__main__':
 
         automator.start()
         print(f"START: {selected_route.name}")
-        while current_distance < 1200:
+        while current_distance < distance:
             current_distance += distance / total_time
-            message = automator.update(playground.random_offset(distance))
+            message = automator.update(playground.random_offset(current_distance))
             print(f"UPDATE: {message} ({current_distance}m / {distance}m)")
             time.sleep(1)
         finish_message = automator.finish(playground.coordinate(distance))
