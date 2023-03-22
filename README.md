@@ -34,6 +34,13 @@ Fork 本仓库，并设置 Secret `USER_ID, FUDAN_SPORT_TOKEN` 即可自动在�
 
 按照教程内的指引配置到设置证书的步骤，然后在软件内点击 Sniff Now 按钮，打开刷锻小程序刷新一下（确保小程序已经登录），再回到 Stream，点击 Stop Sniffing，然后点击 Sniff History，选择最近的一条记录，点开后找到开头为 `GET https://sport.fudan.edu.cn/sapi` 的任意一条记录，点进去选择 Request，在 Request Line 中有 `userid=xxx&token=xxx` 的记录，记下这两段信息。
 
+以PC端为例，可参考[教程](https://juejin.cn/post/6920993581758939150/)进行相应设置
+
+在配置完后，微信登录，右上角齿轮进入代理，端口为127.0.0.1，端口号为8888（默认）
+登录后进入小程序并登录，在fiddler里找到下图中的id和token
+![image](https://user-images.githubusercontent.com/51439899/226794395-42eca333-fb65-4e29-a2cb-b8ce3fd13221.png)
+
+
 ### 自动部署配置教程
 
 首先，你需要注册一个 GitHub 账户，并登录该账户。
