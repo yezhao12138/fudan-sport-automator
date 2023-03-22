@@ -40,6 +40,8 @@ Fork 本仓库，并设置 Secret `USER_ID, FUDAN_SPORT_TOKEN` 即可自动在�
 登录后进入小程序并登录，在fiddler里找到下图中的id和token
 ![image](https://user-images.githubusercontent.com/51439899/226794395-42eca333-fb65-4e29-a2cb-b8ce3fd13221.png)
 
+**注意，目前token的有效期为3天**
+
 
 ### 自动部署配置教程
 
