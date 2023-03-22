@@ -2,6 +2,7 @@ from sport_api import *
 from playground import playgrounds
 import time
 from argparse import ArgumentParser
+import random
 
 if __name__ == '__main__':
     parser = ArgumentParser()
@@ -23,10 +24,12 @@ if __name__ == '__main__':
         distance = 1200
         if args.distance:
             distance = args.distance
+        distance += random.uniform(-1.0, 1.0)
 
         total_time = 360
         if args.time:
             total_time = args.time
+        total_time += random.uniform(-10.0, 10.0)
 
         selected_route = None
         routes = get_routes()
