@@ -4,6 +4,8 @@
 
 ## 使用
 
+**本节是本地运行脚本的说明，不会使用命令行的用户请直接参看「帮助」一节，使用 GitHub Actions 自动运行。**
+
 - 安装依赖：`pip install -r requirements.txt`
 - 设置环境变量 `USER_ID, FUDAN_SPORT_TOKEN`，需要在小程序内抓包获得。
 - 查看刷锻路线列表：`python main.py --view`
@@ -26,7 +28,7 @@ Fork 本仓库，并设置 Secret `USER_ID, FUDAN_SPORT_TOKEN` 即可自动在�
 
 ## 帮助
 
-为了方便没有计算机基础知识的同学运行此脚本，特附上一些使用教程。
+为了方便没有计算机基础知识的同学运行此脚本，特附上使用教程。
 
 ###  抓包教程
 
@@ -40,7 +42,7 @@ Fork 本仓库，并设置 Secret `USER_ID, FUDAN_SPORT_TOKEN` 即可自动在�
 登录后进入小程序并登录，在 fiddler 里找到下图中的 ID 和 token
 ![image](https://user-images.githubusercontent.com/51439899/226794395-42eca333-fb65-4e29-a2cb-b8ce3fd13221.png)
 
-**注意，目前token的有效期为3天**
+**注意，目前 Token 的有效期为 3 天。**
 
 ### 自动部署配置教程
 
