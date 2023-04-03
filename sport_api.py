@@ -9,9 +9,13 @@ def get_routes():
     params = {'userid': os.getenv('USER_ID'), 'token': os.getenv('FUDAN_SPORT_TOKEN')}
     response = requests.get(route_url, params=params)
     data = json.loads(response.text)
-    route_data_list = filter(lambda route: route['points'] is not None and len(route['points']) == 1,
-                             data['data']['list'])
-    return [FudanRoute(route_data) for route_data in route_data_list]
+    try:
+        route_data_list = filter(lambda route: route['points'] is not None and len(route['points']) == 1,
+                                 data['data']['list'])
+        return [FudanRoute(route_data) for route_data in route_data_list]
+    except:
+        print(f"ERROR: {data['message']}")
+        exit(1)
 
 
 class FudanAPI:
