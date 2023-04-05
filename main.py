@@ -24,7 +24,7 @@ if __name__ == '__main__':
         distance = 1200
         if args.distance:
             distance = args.distance
-        distance += random.uniform(-1.0, 1.0)
+        distance += random.uniform(-5.0, 25.0)
 
         total_time = 360
         if args.time:
@@ -36,7 +36,8 @@ if __name__ == '__main__':
         for route in routes:
             if route.id == args.route:
                 selected_route = route
-
+        sleep_time=random.randint(0,600)
+        time.sleep(sleep_time)
         automator = FudanAPI(selected_route)
         playground = playgrounds[args.route]
         current_distance = 0
