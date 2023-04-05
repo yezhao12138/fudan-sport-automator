@@ -31,8 +31,8 @@ class FudanAPI:
                   'token': self.token,
                   'route_id': self.route.id,
                   'route_type': self.route.type,
-                  'system': 'iOS 2016.3.1',
-                  'device': 'iPhone|iPhone 13<iPhone14,5>',
+                  'system': 'Android 12',
+                  'device': 'RNA-AN00',
                   'lng': self.route.start_point.longitude,
                   'lat': self.route.start_point.latitude}
         response = requests.get(start_url, params=params)
