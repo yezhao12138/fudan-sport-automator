@@ -36,7 +36,9 @@ if __name__ == '__main__':
         for route in routes:
             if route.id == args.route:
                 selected_route = route
-        sleep_time=random.randint(0,600)
+
+        # start at random time
+        sleep_time = random.randint(0, 240)
         time.sleep(sleep_time)
         automator = FudanAPI(selected_route)
         playground = playgrounds[args.route]

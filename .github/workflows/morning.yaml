@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  morning-exercise:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,3 +23,5 @@ jobs:
         env:
           USER_ID: ${{ secrets.USER_ID }}
           FUDAN_SPORT_TOKEN: ${{ secrets.FUDAN_SPORT_TOKEN }}
+          PLATFORM_OS: ${{ secrets.PLATFORM_OS }}
+          PLATFORM_DEVICE: ${{ secrets.PLATFORM_DEVICE }}

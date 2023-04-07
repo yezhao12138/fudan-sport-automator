@@ -31,10 +31,8 @@ class FudanAPI:
                   'token': self.token,
                   'route_id': self.route.id,
                   'route_type': self.route.type,
-                  'system': 'iOS 2016.3.1',
-                  'device': 'iPhone|iPhone 13<iPhone14,5>',
-                  #'system': 'Android 12',
-                  #'device': 'RNA-AN00',
+                  'system': os.getenv('PLATFORM_OS', 'iOS 2016.3.1'),
+                  'device': os.getenv('PLATFORM_DEVICE', 'iPhone|iPhone 13<iPhone14,5>'),
                   'lng': self.route.start_point.longitude,
                   'lat': self.route.start_point.latitude}
         response = requests.get(start_url, params=params)
@@ -61,8 +59,8 @@ class FudanAPI:
         params = {'userid': self.user_id,
                   'token': self.token,
                   'run_id': self.run_id,
-                  'system': 'iOS 2016.3.1',
-                  'device': 'iPhone|iPhone 13<iPhone14,5>',
+                  'system': os.getenv('PLATFORM_OS', 'iOS 2016.3.1'),
+                  'device': os.getenv('PLATFORM_DEVICE', 'iPhone|iPhone 13<iPhone14,5>'),
                   'lng': point.longitude,
                   'lat': point.latitude}
         response = requests.get(finish_url, params)
