@@ -48,5 +48,6 @@ class Playground:
 playgrounds = {
     38: Playground(Point(31.291805, 121.502805), 180), # 邯郸南区田径场夜跑
     33: Playground(Point(31.291805, 121.502805), 180), # 邯郸南区田径场课外活动
-    28: Playground(Point(31.291805, 121.502805), 180)  # 邯郸南区田径场早操
+    28: Playground(Point(31.291805, 121.502805), 180),  # 邯郸南区田径场早操
+    48: Playground(Point(31.296757,121.507009), 216.5) # 菜地
 }
