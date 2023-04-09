@@ -20,7 +20,7 @@ Fork 本仓库，并设置 Secret `USER_ID, FUDAN_SPORT_TOKEN` 即可自动在�
 
 ## 说明
 
-目前只支持南区田径场，其他体育场的经纬度坐标有待完善。
+目前只支持南区田径场和菜地，其他体育场的经纬度坐标有待完善。
 
 ## 贡献
 
@@ -60,7 +60,8 @@ from browers only 改为 from all processes。
 
 首先，你需要注册一个 GitHub 账户，并登录该账户。
 
-在 GitHub 页面顶部，点按按钮 Fork，将项目复制到自己账户名下，然后在复制的项目内，依次点击 Settings - Secrets and variables -
+在 GitHub 页面顶部，点按按钮 Fork，将项目复制到自己账户名下，然后点击页面右上角自己的头像 - Your repositories -
+fudan-sport-automate 进入自己刚刚复制的项目，依次点击 Settings - Secrets and variables -
 Actions - New repository secret，并分别新建名为 `USER_ID` 和 `FUDAN_SPORT_TOKEN` 的两个 Secret（Secret
 的值分别为刚才记下的两个值）。配置完成后脚本将在每天早中晚的刷锻时间自动运行。
 
@@ -71,6 +72,8 @@ Exercise、Afternoon Exercise、Evening Exercise，然后在每个页面中分�
 一栏，点击下方 `FUDAN_SPORT_TOKEN` 右侧的铅笔按钮，更新 Token 的值。
 
 （可选）如果需要自定义设备标识，可以新建名为 `PLATFORM_OS, PLATFORM_DEVICE` 的 Secret，见「使用」一节。
+
+（可选）如果需要选择其他的跑步路线，请在 `.github/workflows/*.yaml` 中修改对应的参数，默认为南区体育场，可以修改为菜地。具体操作此处不详述，有需求的用户请自行学习用法。
 
 ### Issue
 
