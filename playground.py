@@ -46,9 +46,10 @@ class Playground:
         return distance(meters=offset).destination(coord, angle)
 
 playgrounds = {
-    38: Playground(Point(31.291805, 121.502805), 180), # 邯郸南区田径场夜跑
-    33: Playground(Point(31.291805, 121.502805), 180), # 邯郸南区田径场课外活动
+    38: Playground(Point(31.291805, 121.502805), 180),  # 邯郸南区田径场夜跑
+    33: Playground(Point(31.291805, 121.502805), 180),  # 邯郸南区田径场课外活动
     28: Playground(Point(31.291805, 121.502805), 180),  # 邯郸南区田径场早操
-    34: Playground(Point(31.296757,121.507009), 216.5), # 菜地
-    35: Playground(Point(31.335097,121.502149),166.3) #江湾
+    44: Playground(Point(31.296757, 121.507009), 216.5),  # 江湾自由跑
+    34: Playground(Point(31.296757, 121.507009), 216.5),  # 菜地
+    35: Playground(Point(31.335097, 121.502149), 166.3)  # 江湾
 }
