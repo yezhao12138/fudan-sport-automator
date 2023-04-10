@@ -17,12 +17,19 @@ def get_routes():
         print(f"ERROR: {data['message']}")
         exit(1)
 
+def default_env(name, default):
+    if os.getenv(name) is None or os.getenv(name).strip() == '':
+        return default
+    else:
+        return os.getenv(name)
 
 class FudanAPI:
     def __init__(self, route):
         self.route = route
         self.user_id = os.getenv('USER_ID')
         self.token = os.getenv('FUDAN_SPORT_TOKEN')
+        self.system = default_env('PLATFORM_OS', 'iOS 2016.3.1')
+        self.device = default_env('PLATFORM_DEVICE', 'iPhone|iPhone 13<iPhone14,5>')
         self.run_id = None
 
     def start(self):
@@ -31,8 +38,8 @@ class FudanAPI:
                   'token': self.token,
                   'route_id': self.route.id,
                   'route_type': self.route.type,
-                  'system': os.getenv('PLATFORM_OS', 'iOS 2016.3.1'),
-                  'device': os.getenv('PLATFORM_DEVICE', 'iPhone|iPhone 13<iPhone14,5>'),
+                  'system': self.system,
+                  'device': self.device,
                   'lng': self.route.start_point.longitude,
                   'lat': self.route.start_point.latitude}
         response = requests.get(start_url, params=params)
@@ -59,8 +66,8 @@ class FudanAPI:
         params = {'userid': self.user_id,
                   'token': self.token,
                   'run_id': self.run_id,
-                  'system': os.getenv('PLATFORM_OS', 'iOS 2016.3.1'),
-                  'device': os.getenv('PLATFORM_DEVICE', 'iPhone|iPhone 13<iPhone14,5>'),
+                  'system': self.system,
+                  'device': self.device,
                   'lng': point.longitude,
                   'lat': point.latitude}
         response = requests.get(finish_url, params)
