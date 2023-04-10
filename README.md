@@ -75,6 +75,11 @@ Exercise、Afternoon Exercise、Evening Exercise，然后在每个页面中分�
 
 （可选）如果需要选择其他的跑步路线，请在 `.github/workflows/*.yaml` 中修改对应的参数，默认为南区体育场，可以修改为菜地。具体操作此处不详述，有需求的用户请自行学习用法。
 
+### 更新
+
+本仓库可能会不时新增功能和修复 bug，如果你已经 Fork 本仓库，在自己复制的仓库上方可以看到一条提示：This branch is * commits
+behind ***，点击 Sync fork，然后点击 Update branch 即可同步到最新版本。
+
 ### Issue
 
 如果在使用过程中遇到了问题，请点击页面顶部的 Issue - New Issue，并在出现的文本框中描述你的问题。
