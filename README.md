@@ -60,7 +60,7 @@ from browers only 改为 from all processes。
 
 首先，你需要注册一个 GitHub 账户，并登录该账户。
 
-在 GitHub 页面顶部，点按按钮 Fork，将项目复制到自己账户名下，然后点击页面右上角自己的头像 - Your repositories -
+在 GitHub 页面顶部，点按按钮 Fork - Create new fork，将项目复制到自己账户名下，然后点击页面右上角自己的头像 - Your repositories -
 fudan-sport-automate 进入自己刚刚复制的项目，依次点击 Settings - Secrets and variables -
 Actions - New repository secret，并分别新建名为 `USER_ID` 和 `FUDAN_SPORT_TOKEN` 的两个 Secret（Secret
 的值分别为刚才记下的两个值）。配置完成后脚本将在每天早中晚的刷锻时间自动运行。
