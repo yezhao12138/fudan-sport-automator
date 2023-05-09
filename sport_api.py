@@ -58,8 +58,11 @@ class FudanAPI:
                   'lng': point.longitude,
                   'lat': point.latitude}
         response = requests.get(update_url, params)
-        data = json.loads(response.text)
-        return data['message']
+        try:
+            data = json.loads(response.text)
+            return data['message']
+        except:
+            return response.text
 
     def finish(self, point):
         finish_url = 'https://sport.fudan.edu.cn/sapi/run/finish'

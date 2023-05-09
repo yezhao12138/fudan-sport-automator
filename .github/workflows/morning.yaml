@@ -19,7 +19,7 @@ jobs:
       - name: Prepare environment
         run: pip install -r requirements.txt
       - name: Run app
-        run: python main.py -r 28 -d 1200 -t 420
+        run: python main.py -r 28 -d 1200 -t 420 -q
         env:
           USER_ID: ${{ secrets.USER_ID }}
           FUDAN_SPORT_TOKEN: ${{ secrets.FUDAN_SPORT_TOKEN }}
