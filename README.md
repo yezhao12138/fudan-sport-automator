@@ -7,7 +7,7 @@
 **本节是本地运行脚本的说明，不会使用命令行的用户请直接参看「帮助」一节，使用 GitHub Actions 自动运行。**
 
 - 安装依赖：`pip install -r requirements.txt`
-- 设置环境变量 `USER_ID, FUDAN_SPORT_TOKEN`，需要在小程序内抓包获得。
+- 修改 `settings.json` 文件中的 `USER_ID, FUDAN_SPORT_TOKEN` 变量，需要在小程序内抓包获得，详请查看“抓包教程”章节。
 - 查看刷锻路线列表：`python main.py --view`
 - 自动刷锻：`python main.py --route <route_id>`，其中 `route_id` 是刷锻路线列表中的 ID。
 - 可以设置里程和时间，如 `--distance 1200 --time 360`，更多选项请使用 `python main.py --help` 查看。

@@ -4,9 +4,22 @@ import json
 import os
 
 
+def _get_arg_from_env_or_json(arg_name, default=None):
+    value = os.getenv(arg_name)
+    if value is None or not value.strip():
+        # Try loading from setting.json
+        try:
+            with open('settings.json', 'r', encoding='utf-8') as fp:
+                value = json.load(fp)[arg_name]
+        except Exception:
+            value = default
+    return value
+
+
 def get_routes():
     route_url = 'https://sport.fudan.edu.cn/sapi/route/list'
-    params = {'userid': os.getenv('USER_ID'), 'token': os.getenv('FUDAN_SPORT_TOKEN')}
+    params = {'userid': _get_arg_from_env_or_json('USER_ID'),
+              'token': _get_arg_from_env_or_json('FUDAN_SPORT_TOKEN')}
     response = requests.get(route_url, params=params)
     data = json.loads(response.text)
     try:
@@ -17,19 +30,14 @@ def get_routes():
         print(f"ERROR: {data['message']}")
         exit(1)
 
-def default_env(name, default):
-    if os.getenv(name) is None or os.getenv(name).strip() == '':
-        return default
-    else:
-        return os.getenv(name)
 
 class FudanAPI:
     def __init__(self, route):
         self.route = route
-        self.user_id = os.getenv('USER_ID')
-        self.token = os.getenv('FUDAN_SPORT_TOKEN')
-        self.system = default_env('PLATFORM_OS', 'iOS 2016.3.1')
-        self.device = default_env('PLATFORM_DEVICE', 'iPhone|iPhone 13<iPhone14,5>')
+        self.user_id = _get_arg_from_env_or_json('USER_ID')
+        self.token = _get_arg_from_env_or_json('FUDAN_SPORT_TOKEN')
+        self.system = _get_arg_from_env_or_json('PLATFORM_OS', 'iOS 2016.3.1')
+        self.device = _get_arg_from_env_or_json('PLATFORM_DEVICE', 'iPhone|iPhone 13<iPhone14,5>')
         self.run_id = None
 
     def start(self):
@@ -76,6 +84,7 @@ class FudanAPI:
         response = requests.get(finish_url, params)
         data = json.loads(response.text)
         return data['message']
+
 
 class FudanRoute:
     def __init__(self, data):

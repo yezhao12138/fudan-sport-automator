@@ -1,8 +1,9 @@
-from sport_api import *
-from playground import playgrounds
+import random
 import time
 from argparse import ArgumentParser
-import random
+
+from playground import playgrounds
+from sport_api import FudanAPI, get_routes
 
 if __name__ == '__main__':
     parser = ArgumentParser()
@@ -34,11 +35,13 @@ if __name__ == '__main__':
         total_time += random.uniform(-10.0, 10.0)
 
         # get routes from server
-        selected_route = None
         routes = get_routes()
         for route in routes:
             if route.id == args.route:
                 selected_route = route
+                break
+        else:
+            raise ValueError(f'不存在id为{args.route}的route')
 
         # delay random time, used in GitHub Action deployment
         if args.delay:
