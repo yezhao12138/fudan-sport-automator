@@ -1,3 +1,4 @@
+import asyncio
 import random
 import time
 from argparse import ArgumentParser
@@ -5,7 +6,8 @@ from argparse import ArgumentParser
 from playground import playgrounds
 from sport_api import FudanAPI, get_routes
 
-if __name__ == '__main__':
+
+async def main():
     parser = ArgumentParser()
     parser.add_argument('-v', '--view', action='store_true', help="list available routes")
     parser.add_argument('-r', '--route', help="set route ID", type=int)
@@ -15,7 +17,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     if args.view:
-        routes = get_routes()
+        routes = await get_routes()
         supported_routes = filter(lambda r: r.id in playgrounds, routes)
         for route in supported_routes:
             route.pretty_print()
@@ -35,7 +37,7 @@ if __name__ == '__main__':
         total_time += random.uniform(-10.0, 10.0)
 
         # get routes from server
-        routes = get_routes()
+        routes = await get_routes()
         for route in routes:
             if route.id == args.route:
                 selected_route = route
@@ -52,12 +54,15 @@ if __name__ == '__main__':
         automator = FudanAPI(selected_route)
         playground = playgrounds[args.route]
         current_distance = 0
-        automator.start()
+        await automator.start()
         print(f"START: {selected_route.name}")
         while current_distance < distance:
             current_distance += distance / total_time
-            message = automator.update(playground.random_offset(current_distance))
+            message, _ = await asyncio.gather(
+                automator.update(playground.random_offset(current_distance)), asyncio.sleep(1))
             print(f"UPDATE: {message} ({current_distance}m / {distance}m)")
-            time.sleep(1)
-        finish_message = automator.finish(playground.coordinate(distance))
+        finish_message = await automator.finish(playground.coordinate(distance))
         print(f"FINISHED: {finish_message}")
+
+if __name__ == '__main__':
+    asyncio.run(main())

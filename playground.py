@@ -1,16 +1,17 @@
-from geopy.distance import distance
 import random
+from math import pi
+
+from geopy.distance import distance
 from geopy.point import Point
 
 l = 86.96
 r = 36.5
-Pi = 3.1415926
-c = Pi * r
+c = pi * r
 d = 400
 
 
 def rad2ang(rad):
-    return (rad / Pi) * 180
+    return (rad / pi) * 180
 
 
 class Playground:
